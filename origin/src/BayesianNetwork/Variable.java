@@ -1,4 +1,3 @@
-package BayesianNetwork;
 
 
 
@@ -46,7 +45,7 @@ public class Variable {
 
 	public Map<Condition, Double> probabilities;
 
-	public BayesianNetwork network;
+	public NB network;
 
 
 
@@ -66,7 +65,7 @@ public class Variable {
 
 
 
-	public Variable(BayesianNetwork net, String name) {
+	public Variable(NB net, String name) {
 
 		this(name);
 
@@ -76,7 +75,7 @@ public class Variable {
 
 
 
-	public void bind(BayesianNetwork net) {
+	public void bind(NB net) {
 
 		network = net;
 

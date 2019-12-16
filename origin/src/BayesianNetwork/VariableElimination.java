@@ -1,12 +1,8 @@
-package BayesianNetwork;
 import java.util.ArrayList;
 
 import java.util.Arrays;
 
 import java.util.List;
-
-import BayesianNetwork.*;
-
 
 
 /**
@@ -43,9 +39,11 @@ import BayesianNetwork.*;
 
 public class VariableElimination implements Inference{
 
+	public static int countmul=0;
+	public static int countsum=0;
 
 
-	BayesianNetwork network;
+	NB network;
 
 
 
@@ -57,7 +55,7 @@ public class VariableElimination implements Inference{
 
 	 */
 
-	public VariableElimination(BayesianNetwork network) {
+	public VariableElimination(NB network) {
 
 		this.network = network;
 
@@ -130,6 +128,7 @@ public class VariableElimination implements Inference{
 		List<Factor> factors = new ArrayList<Factor>();
 
 		for (Variable v : order) {
+			countmul++;
 
 			factors.add(new Factor(v, evidence));
 
@@ -141,9 +140,9 @@ public class VariableElimination implements Inference{
 
 				Factor temp = factors.get(0);
 
-				for (int i = 1; i < factors.size(); i++)
-
-					temp = temp.join(factors.get(i));
+				for (int i = 1; i < factors.size(); i++) {
+					countsum++;
+					temp = temp.join(factors.get(i));}
 
 				temp.eliminate(v);
 

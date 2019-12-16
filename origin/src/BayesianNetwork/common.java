@@ -1,4 +1,3 @@
-package BayesianNetwork;
 import java.util.Iterator;
 
 

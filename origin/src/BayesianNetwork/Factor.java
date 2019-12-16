@@ -1,4 +1,3 @@
-package BayesianNetwork;
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -11,7 +10,6 @@ import java.util.Map;
 
 
 
-import BayesianNetwork.*;
 
 
 
@@ -229,10 +227,10 @@ public class Factor {
 
 		Double sumP = 0.0;
 
-		for (Double d : p.values())
-
+		for (Double d : p.values()) {
+			VariableElimination.countsum++;
 			sumP += d;
-
+		}
 
 
 		Map<Condition, Double> newP = new HashMap<Condition, Double>();

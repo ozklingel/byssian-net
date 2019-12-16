@@ -1,7 +1,4 @@
-package BayesianNetwork;
 import java.io.*;
-
-import BayesianNetwork.*;
 
 
 
@@ -54,9 +51,9 @@ public class Main {
 
 	 */
 
-	public static BayesianNetwork getNetwork() {
+	public static NB getNetwork() {
 
-		BayesianNetwork net = new BayesianNetwork();
+		NB net = new NB();
 
 		
 
@@ -155,7 +152,7 @@ public class Main {
 
 		
 
-		BayesianNetwork net = getNetwork();
+		NB net = getNetwork();
 
 		
 
@@ -180,6 +177,8 @@ public class Main {
 			answers.append(inferenceMethod.ask(common.parseQuery("(C|I,B)")) + "\n");
 
 		System.out.print(answers.toString());
+		System.out.println(VariableElimination.countmul);
+		System.out.println(VariableElimination.countsum);
 
 		in.close();
 
